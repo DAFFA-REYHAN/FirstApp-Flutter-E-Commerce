@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:flutter_application/componnent/main_header.dart';
 import 'package:flutter_application/controller/controllers.dart';
 import 'package:flutter_application/view/home/components/popular_category/popular_category.dart';
+import 'package:flutter_application/view/home/components/popular_product/popular_product.dart';
 import 'package:flutter_application/view/home/components/popular_product/popular_product_loading.dart';
 import 'package:flutter_application/view/home/components/section_title.dart';
 
@@ -44,7 +45,8 @@ class HomeScreen extends StatelessWidget {
                 const SectionTitle(title: "Popular Product"),
                 Obx(() {
                   if (homeController.popularProductList.isNotEmpty) {
-                    return PopularProductLoading();
+                    return PopularProduct(
+                        popularProducts: homeController.popularProductList);
                   } else {
                     return const PopularProductLoading();
                   }
