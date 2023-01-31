@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/const.dart';
 import 'package:flutter_application/model/category.dart';
@@ -13,7 +12,7 @@ class PopularCategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(10, 10, 5, 10),
+      padding: const EdgeInsets.fromLTRB(10, 10, 5, 10),
       child: CachedNetworkImage(
         imageUrl: baseUrl + category.image,
         imageBuilder: (context, imageProvider) => Material(
