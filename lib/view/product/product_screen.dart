@@ -16,10 +16,22 @@ class ProductScreen extends StatelessWidget {
         children: [
           const MainHeader(),
           Expanded(child: Obx(() {
-            if (productController.productList.isNotEmpty) {
-              return ProductGrid(products: productController.productList);
-            } else {
+            if (productController.isProductLoading.value) {
               return const ProductLoadingGrid();
+            } else {
+              if (productController.productList.isNotEmpty) {
+                return ProductGrid(products: productController.productList);
+              } else {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset('assets/product_not_found.png'),
+                    const SizedBox(height: 10),
+                    const Text('Product Not Found !')
+                  ],
+                );
+              }
             }
           }))
         ],
