@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:flutter_application/model/product.dart';
 import 'package:flutter_application/service/remote_service/remote_product.dart';
-import 'package:get/get.dart';
 
 class ProductController extends GetxController {
   static ProductController instance = Get.find();
@@ -33,6 +33,19 @@ class ProductController extends GetxController {
     try {
       isProductLoading(true);
       var result = await RemoteProductService().getByName(keyword: keyword);
+      if (result != null) {
+        productList.assignAll(productListFromJson(result.body));
+      }
+    } finally {
+      isProductLoading(false);
+      print(productList.length);
+    }
+  }
+
+  void getProductByCategory({required int id}) async {
+    try {
+      isProductLoading(true);
+      var result = await RemoteProductService().getByCategory(id: id);
       if (result != null) {
         productList.assignAll(productListFromJson(result.body));
       }

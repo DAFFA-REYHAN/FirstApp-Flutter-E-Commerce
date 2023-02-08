@@ -77,7 +77,7 @@ class _ProductCarouselSliderState extends State<ProductCarouselSlider> {
             return Container(
               width: 6,
               height: 6,
-              margin: EdgeInsets.symmetric(vertical: 10, horizontal: 3),
+              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 3),
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: _currentIndex == index
